@@ -22,7 +22,7 @@ namespace UnitTests
             Assert.That(Program.AvailableClassification(age), Is.EqualTo(expectedClassification));
         }
 
-        [TestCase(19, "All Films are available.")]
+        [TestCase(18, "All Films are available.")]
         public void GivenAnAgeOver18_AvailableClassification_ReturnsExpectedClassification(int age, string expectedClassification)
         {
             Assert.That(Program.AvailableClassification(age), Is.EqualTo(expectedClassification));
