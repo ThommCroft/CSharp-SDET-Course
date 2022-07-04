@@ -10,7 +10,7 @@ public class Program
         //var greet = Greeting(timeOfDay);
         //Console.WriteLine(greet);
 
-        int viewerAge = 105;
+        int viewerAge = 30;
         var availableClassification = AvailableClassification(viewerAge);
         Console.WriteLine(availableClassification);
     }
