@@ -15,8 +15,6 @@ namespace TestFirstExercises_Tests
 
         [TestCase(0, 10.429)]
         [TestCase(10, 24.714)]
-
-        [TestCase(50, 24.714)]
         public void GivenNumber_BODMAS_ReturnsTheExpectedResult(int num, double expResult)
         {
             Assert.That(Methods.BODMAS(num), Is.EqualTo(expResult));

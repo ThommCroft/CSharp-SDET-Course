@@ -1,3 +1,5 @@
-# Sparta-Global-Csharp-SDET-Lessons
+# Sparta-Global-C sharp-SDET-Lessons
 
-Don't Read this ;)
+
+
+This folder contains all work related to the Sparta Global C# SDET course.

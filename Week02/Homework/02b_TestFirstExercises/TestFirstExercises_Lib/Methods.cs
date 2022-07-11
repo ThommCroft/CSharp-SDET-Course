@@ -26,7 +26,14 @@ namespace TestFirstExercises
 
             //result = (((inputNumber * 2) + 101) / 7) - 4;
 
-            result = inputNumber * 2;
+            //result = ((Math.Sqrt(inputNumber) + 101) / 7) - 4;
+
+            //result = Math.Sqrt(inputNumber);
+            //result += 101;
+            //result /= 7;
+            //result -= 4;
+
+            result = inputNumber * inputNumber;
             result += 101;
             result /= 7;
             result -= 4;
