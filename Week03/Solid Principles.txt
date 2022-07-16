@@ -1,0 +1,33 @@
+	SOLID Principles
+
+- Single Responsibility Principle:
+	- Just because you can doesn't mean you should.
+	
+	- Every object should have a single responsibility and all of its services should be aligned with that responsibility.
+	- Responsibility is defined as a reason to change.
+
+- Open-closed Principle:
+	- Open-chested surgery isn't needed when putting on a coat.
+	
+	- Software entities such as classes, modules and functions should only be open for extension but closed to modification.
+	- The idea is that it's often better to make changes to things like classes by adding to or building upon rather than modifying their code.
+		- (Using subclasses or polymorphism)
+
+- Liskov Substitution Principle:
+	- If it looks like a duck and quacks like a duck but needs batteries, you probably have the wrong abstraction.
+	
+	- Subclasses should be substitutable for the classes they are derived from.
+	- For example if MySubclass is a subclass of MyClass, you should be able to replace Myclass with MySubclass without breaking the program.
+
+- Interface Segregation Principle:
+	- You want me to plug this in where?
+	
+	- Clients should not be forced to depend on methods they do not need.
+	- If a class exposes so many members that those members can be broken down into groups that serve different clients that do not use members from other groups,
+	  you should think about exposing those memeber groups as separate interfaces.
+
+- Dependency Inversion Principle:
+	- Would you solder a lamp directly to the electrical wiring in a wall?
+	
+	- States that high-level modules shouldn't depend on low-level modules, but both should depend on sharing abstractions.
+	- Abstractions should not depend on details - instead, details should depend on abstractions.

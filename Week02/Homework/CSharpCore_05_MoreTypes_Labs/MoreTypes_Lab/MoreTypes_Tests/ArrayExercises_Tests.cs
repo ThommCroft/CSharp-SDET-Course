@@ -62,7 +62,7 @@ namespace MoreTypes_Tests
         {
             Assert.That(() => ArraysExercises.MakeJagged2DArray(3, 4, _list),
                 Throws.TypeOf<ArgumentException>()
-                .With.Message.EqualTo("Number of elements in list must match array size")); ;
+                .With.Message.EqualTo("Number of elements in list must match array size"));
         }
     }
 }
