@@ -5,11 +5,13 @@ using OOPApp.Interfaces;
 
 namespace OOPApp
 {
-    public class Human : BaseAnimal // Sub Class
+    public class Human : BaseAnimal, IAttackable // Sub Class
     {
-        public Human(string name, string animalType) : base(name, animalType)
-        {
+        public IAttackable Weapon { get; set; }
 
+        public Human(string name, IAttackable weapon) : base(name, "Human")
+        {
+            Weapon = weapon;
         }
 
         public override string Move() // Polymorphism
@@ -22,9 +24,9 @@ namespace OOPApp
             return base.Eat(food);
         }
 
-        public override string Attack()
+        public virtual string Attack()
         {
-            return base.Attack();
+            return $"{Name} used {Weapon.Name} to attack ";
         }
     }
 }

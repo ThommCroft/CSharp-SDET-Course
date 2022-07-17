@@ -7,16 +7,16 @@ namespace OOPApp
 {
     public class Hunter : Human // Sub Class of a Sub Class
     {
-        public IAttackable Weapon { get; set; }
+        
 
-        public Hunter(string name, string animalType, IAttackable weapon) : base(name, animalType)
+        public Hunter(string name, IAttackable weapon) : base(name, weapon)
         {
-            Weapon = weapon;
+            
         }
 
         public override string Attack()
         {
-            return $"{Name} used {Weapon}";
+            return base.Attack();
         }
     }
 }

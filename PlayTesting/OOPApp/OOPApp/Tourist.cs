@@ -7,7 +7,7 @@ namespace OOPApp
 {
     public class Tourist : Human
     {
-        public Tourist(string name, string animalType = "Human") : base(name, animalType)
+        public Tourist(string name, IAttackable weapon) : base(name, weapon)
         {
 
         }

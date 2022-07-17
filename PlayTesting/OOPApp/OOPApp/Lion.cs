@@ -5,10 +5,11 @@ using OOPApp.Interfaces;
 
 namespace OOPApp
 {
-    public class Lion : BaseAnimal // Sub Class
+    public class Lion : BaseAnimal, IAttackable // Sub Class
     {
         public IAttackable Weapon{ get; set; }
-        public Lion(string name, string animalType, IAttackable weapon) : base(name, animalType)
+
+        public Lion(string name,  IAttackable weapon) : base(name, "Lion")
         {
             Weapon = weapon;
         }
@@ -23,7 +24,7 @@ namespace OOPApp
             return base.Eat(food);
         }
 
-        public override string Attack()
+        public string Attack()
         {
             return $"{Name} used {Weapon}";
         }

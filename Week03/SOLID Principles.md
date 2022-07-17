@@ -20,4 +20,4 @@ States that clients(Classes) should not be forced to depend on methods they do n
 
 #### Dependency Inversion Principle:
 
-High-level modules(Back-end) should not depend on Low-level modules(UI), but both should depend on shared abstractions. In addition, abstractions should not depend on details but instead, details should depend on abstractions.
+High-level modules(Back-end) should not depend on Low-level modules(UI), but both should depend on shared abstractions. In addition, abstractions should not depend on details instead, details should depend on abstractions.

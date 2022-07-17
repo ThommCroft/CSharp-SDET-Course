@@ -2,7 +2,7 @@
 
 namespace OOPApp
 {
-    public class BaseAnimal : IMoveable, IEatable, IAttackable // Base Class with Interfaces
+    public class BaseAnimal : IMoveable, IEatable // Base Class with Interfaces
     {
         private string _name = "";
 
@@ -30,11 +30,6 @@ namespace OOPApp
         public virtual string Eat(string food)
         {
             return food;
-        }
-
-        public virtual string Attack()
-        {
-            return "";
         }
     }
 }
