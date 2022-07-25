@@ -1,0 +1,6 @@
+{
+	"firstName": "Tom",
+	"lastName": "Wolstencroft",
+	"address": {"street": "700 Bob Street", "city": "Bobville", "postCode": "BV9 7BD"},
+	"phoneNumber": [{"type": "home", "number":"56990934210"}]
+}

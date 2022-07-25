@@ -19,7 +19,7 @@ namespace AdvancedNUnit
 
             foreach (char c in sentence.ToLower())
             {
-                if (char.IsLetter(c))
+                if (char.IsLetter(c) || char.IsDigit(c))
                 {
                     sentenceForward += c;
                 }

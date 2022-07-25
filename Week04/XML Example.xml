@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<root>
+<bookstore>
+	<book category="action">
+		<title>Hunter</title>
+		<author>Derick Bob</author>
+		<year>2002</year>
+		<price>19.99</price>
+	</book>
+</bookstore>
+
+<tanks>
+	<tank category="mbt">
+		<title>Challenger 3</title>
+		<creators>BAE Systems</creators>
+		<year>2020</year>
+	</tank>
+</tanks>
+
+<table>
+	<tr>
+	  <td>Apple</td>
+	  <td>Bananas</td>
+	</tr>
+</table>
+
+</root>

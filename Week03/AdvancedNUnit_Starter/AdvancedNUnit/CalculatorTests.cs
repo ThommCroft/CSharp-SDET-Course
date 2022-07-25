@@ -1,32 +1,46 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 
 namespace AdvancedNUnit
 {
+    [TestFixture] // Marks a Class as a Test Class.
     public class CalculatorTests
     {
         // Command prompt Test Commands:
         //  dotnet test --list-tests
         //  dotnet test
 
+        [OneTimeSetUp]
+        public void OneTimeSetUp()
+        {
+            // Tests one object in many methods.
+        }
+
         [SetUp]
-        public void Setup() 
+        public void Setup()
         {
 
         }
+        //Tests maybe run in parallel, they do not have a specific order.
 
-        [Test]
-        public void Add_Always_ReturnsExpectedResult()
+        private static object[] AddCases = { new int[] { 2, 4, 6 }, new int[] { -2, 4, 2 } }; // Useful for testing objects that need instaniating.
+
+        [TestCaseSource("AddCases")] //[TestCase(2, 4, 6)]
+        [Category("Happy Path")]
+        public void Add_Always_ReturnsExpectedResult(int x, int y, int expectedResult)
         {
             // Arrange
-            var expectedResult = 6;
-            var subject = new Calculator { Num1 = 2, Num2 = 4 };
+            var subject = new Calculator { Num1 = x, Num2 = y };
+
             // Act
             var result = subject.Add();
+
             // Assert
             Assert.That(result, Is.EqualTo(expectedResult), "optional failure message");
         }
 
+        #region Examples
         [Test]
         public void SomeConstraints()
         {
@@ -85,9 +99,33 @@ namespace AdvancedNUnit
         [Test]
         public void PlayTest()
         {
-            var stringList = new List<string>() { "Bob", "Dave", "Gertrude", "Steve", "James"};
+            var stringList = new List<string>() { "Bob", "Dave", "Gertrude", "Steve", "James" };
 
             Assert.That(stringList, Does.Contain("Steve").And.Contain("James"));
         }
-    }   
+
+        [OneTimeTearDown]
+        public void OneTimeTearDown()
+        {
+            // Called Once after all Child Tests have run.
+            // Will always run even when an Exception is called.
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            // Called immediately after all Child Tests have run.
+            // Will always run even when an Exception is called.
+        }
+        #endregion
+
+        [Test]
+        [Category("Error Path")]
+        public void GivenANumberDivide_Divide_ThrowDivideByZero()
+        {
+            var subject = new Calculator { Num1 = 2, Num2 = 0 };
+
+            Assert.That(() => subject.Divide(), Throws.TypeOf<ArgumentException>().With.Message.EqualTo("Can't divide by zero"));
+        }
+    }
 }
