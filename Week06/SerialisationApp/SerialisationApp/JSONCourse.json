@@ -1,0 +1,26 @@
+{
+  "Subject": null,
+  "Title": null,
+  "StartDate": {
+    "Year": 1,
+    "Month": 1,
+    "Day": 1,
+    "DayOfWeek": 1,
+    "DayOfYear": 1,
+    "DayNumber": 0
+  },
+  "Trainees": [
+    {
+      "FirstName": "Dylan",
+      "LastName": "Cole",
+      "SpartaNumber": 100,
+      "FullName": "Dylan Cole"
+    },
+    
+    {
+      "FirstName": "Tom",
+      "LastName": "Wolstencroft",
+      "SpartaNumber": 101,
+      "FullName": "Tom Wolstencroft"
+    }
+  ]}

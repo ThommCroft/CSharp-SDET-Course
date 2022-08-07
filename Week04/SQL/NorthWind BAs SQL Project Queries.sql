@@ -22,3 +22,9 @@ SELECT TOP (1) OrderID, (UnitPrice * Quantity) * Discount as TotalDiscount FROM 
 
 SELECT T1.EmployeeID, T1.FirstName, T1.LastName, T1.ReportsTo, T2.FirstName, T2.LastName FROM Employees T1 -- 1.8
 	INNER JOIN Employees T2 ON (T2.EmployeeID = T1.ReportsTo)
+
+-- Class Exercise
+SELECT o.OrderID, o.OrderDate, o.Freight, c.CompanyName, e.FirstName + ' ' + e.LastName AS "Employee Name"
+FROM Orders o
+Join Customers c ON (o.CustomerID = c.CustomerID)
+Join Employees e ON (o.EmployeeID = e.EmployeeID);
