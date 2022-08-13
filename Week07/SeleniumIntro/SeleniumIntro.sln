@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumIntro", "SeleniumIntro\SeleniumIntro.csproj", "{73DEF630-BD03-4006-A4C4-E04DBE54D66E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebScrapping", "WebScrapping\WebScrapping.csproj", "{7D875F16-66F0-4B46-BCE6-F6E308EE0482}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73DEF630-BD03-4006-A4C4-E04DBE54D66E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73DEF630-BD03-4006-A4C4-E04DBE54D66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73DEF630-BD03-4006-A4C4-E04DBE54D66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73DEF630-BD03-4006-A4C4-E04DBE54D66E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D875F16-66F0-4B46-BCE6-F6E308EE0482}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D875F16-66F0-4B46-BCE6-F6E308EE0482}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D875F16-66F0-4B46-BCE6-F6E308EE0482}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D875F16-66F0-4B46-BCE6-F6E308EE0482}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCC62F2E-AE29-42E9-AAA9-20E2655B9079}
+	EndGlobalSection
+EndGlobal

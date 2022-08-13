@@ -9,3 +9,17 @@ Moq (Pronounced Mock) is a framework that allows you to simulate dependencies at
 - Inject those Moq instances when creating the system under test.
 - Ask Moq to verify that all of its expectations were met.
 
+##### Benefits of Moq:
+
+
+
+##### Stubs:
+
+
+
+##### Behaviour-based:
+
+
+
+##### Testing Exceptions:
+
