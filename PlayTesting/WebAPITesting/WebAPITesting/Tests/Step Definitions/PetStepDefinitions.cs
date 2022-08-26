@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System;
 using TechTalk.SpecFlow;
 
@@ -7,7 +8,6 @@ namespace WebAPITesting
     public class PetStepDefinitions
     {
         private PetServices _petServices;
-        private string _petId;
 
         [Given(@"I am a Store User")]
         public void GivenIAmAStoreUser()
@@ -18,17 +18,17 @@ namespace WebAPITesting
         [When(@"I enter a valid pet ""([^""]*)""")]
         public async Task WhenIEnterAValidPet(string iD)
         {
-            _petId = iD;
             await _petServices.MakeGetRequestAsync(iD);
         }
 
-        [Then(@"I should see that pet's information")]
-        public void ThenIShouldSeeThatPetsInformation()
+        [Then(@"I should see that pet's ""([^""]*)"", ""([^""]*)"", ""([^""]*)""")]
+        public void ThenIShouldSeeThatPets(string name, string categoryName, string availabilityStatus)
         {
-            //Assert.That(_petServices.Json_Response["responses"].ToString(), Is.EqualTo("200"));
-            Assert.That(_petServices.PetDTOResponse.Response.status, Is.EqualTo("available"));
-            //Assert.That(_petServices.Json_Response["status"].ToString(), Is.EqualTo("available"));
+            Assert.That(_petServices.PetDTOResponse.Response.name, Is.EqualTo(name));
+            Assert.That(_petServices.PetDTOResponse.Response.category.name, Is.EqualTo(categoryName));
+            Assert.That(_petServices.PetDTOResponse.Response.status, Is.EqualTo(availabilityStatus));
         }
+
 
         [When(@"I enter an invalid pet ""([^""]*)""")]
         public async Task WhenIEnterAnInvalidPet(string iD)
@@ -36,28 +36,10 @@ namespace WebAPITesting
             await _petServices.MakeGetRequestAsync(iD);
         }
 
-        [Then(@"I receive a (.*) error message")]
-        public void ThenIReceiveAErrorMessage(int errorNumber)
+        [Then(@"I receive a ""([^""]*)""")]
+        public void ThenIReceiveA(int errorStatus)
         {
-            Assert.That(_petServices.Json_Response["responses"].ToString(), Is.EqualTo("errorNumber"));
-        }
-
-        [When(@"I want to see a pet's valid availability status")]
-        public void WhenIWantToSeeAPetsValidAvailabilityStatus()
-        {
-            throw new PendingStepException();
-        }
-
-        [Then(@"I am shown that pet's status")]
-        public void ThenIAmShownThatPetsStatus()
-        {
-            throw new PendingStepException();
-        }
-
-        [When(@"I enter an invalid pet's availability status")]
-        public void WhenIEnterAnInvalidPetsAvailabilityStatus()
-        {
-            throw new PendingStepException();
+            Assert.That((int)_petServices.CallManager.Response.StatusCode, Is.EqualTo(errorStatus));
         }
 
         [Given(@"I am a Worker")]

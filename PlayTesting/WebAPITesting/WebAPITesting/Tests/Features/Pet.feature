@@ -6,24 +6,24 @@ A short summary of the feature
 Scenario: 1.1.1 As a Store User, I want to Enter a Pets ID, So that I can view that Pets information
 	Given I am a Store User
 	When I enter a valid pet "<ID>"
-	Then I should see that pet's information
+	Then I should see that pet's "<name>", "<categoryName>", "<availabilityStatus>"
 	Examples: 
-	| ID                  |
-	| 9223372036854024262 |
-	| 9223372036854024263 |
-	| 9223372036854024264 |
+	| ID  | name   | categoryName | availabilityStatus |
+	| 52  | Vova   | humster      | available          |
+	| 224 | doggie | Mark         | available          |
+	| 9   |        | cats         | sold               |
 
 @SadPath
 Scenario: 1.1.2 As a Store User, I want to Enter a Pets ID, So that I can view that Pets information
 	Given I am a Store User
 	When I enter an invalid pet "<ID>"
-	Then I receive a 400 error message
+	Then I receive a "<errorStatus>"
 	Examples: 
-	| ID  |
-	|     |
-	| 456 |
-	| gty |
-	| ,./ |
+	| ID  | errorStatus |
+	|     | 405         |
+	| 456 | 404         |
+	| gty | 404         |
+	| ,./ | 404         |
 
 @HappyPath
 Scenario: 1.2.1 As a Store User, I want to see a Pets Status, So that I know if it is available or not

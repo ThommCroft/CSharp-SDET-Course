@@ -12,21 +12,20 @@ namespace WebAPITesting.HTTP_Manager
         public CallManager()
         {
             _client = new RestClient(AppConfigReader.baseUrl);
+            _request = new RestRequest();
+            _request.AddHeader("Content-Type", "application/json");
         }
 
         public async Task<string> MakeRequestAsync(string id, Resource resource, Method method) // id, username, order, inventory
         {
-            _request = new RestRequest();
-            _request.AddHeader("Content-Type", "application/json");
-
             switch (resource)
             {
                 case Resource.pet:
-                    return await MakePetRequestAsync(id.Trim(), resource, method);
+                    return await MakePetRequestAsync(id, resource, method);
                 case Resource.store:
-                    return await MakeStoreRequestAsync(id.Trim(), resource, method);
+                    return await MakeStoreRequestAsync(id, resource, method);
                 case Resource.user:
-                    return await MakeUserRequestAsync(id.Trim(), resource, method);
+                    return await MakeUserRequestAsync(id, resource, method);
                 default:
                     throw new ArgumentException();
             }
@@ -36,11 +35,11 @@ namespace WebAPITesting.HTTP_Manager
         {
             if (method == Method.Get)
             {
-                _request.Resource = $"{AppConfigReader.baseUrl}/{resource}/{id}";
+                _request.Resource = $"{resource}/{id}";
             }
             else if (method == Method.Post)
             {
-                _request.Resource = $"{AppConfigReader.baseUrl}/{resource}";
+                _request.Resource = $"{resource}";
 
                 string[] newPet = id.Split(',');
                 _request.AddJsonBody(new
@@ -54,7 +53,7 @@ namespace WebAPITesting.HTTP_Manager
             }
             else if (method == Method.Put)
             {
-                _request.Resource = $"{AppConfigReader.baseUrl}/{resource}/{id}";
+                _request.Resource = $"{resource}/{id}";
 
                 string[] updatePet = id.Split(',');
                 _request.AddJsonBody(new
@@ -68,7 +67,7 @@ namespace WebAPITesting.HTTP_Manager
             }
             else if (method == Method.Delete)
             {
-                _request.Resource = $"{AppConfigReader.baseUrl}/{resource}/{id}";
+                _request.Resource = $"{resource}/{id}";
             }
 
             _request.Method = method;
@@ -80,11 +79,11 @@ namespace WebAPITesting.HTTP_Manager
         {
             if (method == Method.Get)
             {
-                _request.Resource = $"{AppConfigReader.baseUrl}/{resource}/{id}";
+                _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{id}";
             }
             else if (method == Method.Post)
             {
-                _request.Resource = $"{AppConfigReader.baseUrl}/{resource}";
+                _request.Resource = $"{AppConfigReader.baseUrl}{resource}";
 
                 string[] newOrder = id.Split(',');
                 _request.AddJsonBody(new
@@ -98,7 +97,7 @@ namespace WebAPITesting.HTTP_Manager
             }
             else if (method == Method.Delete)
             {
-                _request.Resource = $"{AppConfigReader.baseUrl}/{resource}/{id}";
+                _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{id}";
             }
 
             _request.Method = method;
@@ -110,11 +109,11 @@ namespace WebAPITesting.HTTP_Manager
         {
             if (method == Method.Get)
             {
-                _request.Resource = $"{AppConfigReader.baseUrl}/{resource}/{id}";
+                _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{id}";
             }
             else if (method == Method.Post)
             {
-                _request.Resource = $"{AppConfigReader.baseUrl}/{resource}";
+                _request.Resource = $"{AppConfigReader.baseUrl}{resource}";
 
                 string[] newUser = id.Split(',');
                 _request.AddJsonBody(new
@@ -130,7 +129,7 @@ namespace WebAPITesting.HTTP_Manager
             }
             else if (method == Method.Put)
             {
-                _request.Resource = $"{AppConfigReader.baseUrl}/{resource}/{id}";
+                _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{id}";
 
                 string[] updateUser = id.Split(',');
                 _request.AddJsonBody(new
@@ -146,7 +145,7 @@ namespace WebAPITesting.HTTP_Manager
             }
             else if (method == Method.Delete)
             {
-                _request.Resource = $"{AppConfigReader.baseUrl}/{resource}/{id}";
+                _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{id}";
             }
 
             _request.Method = method;

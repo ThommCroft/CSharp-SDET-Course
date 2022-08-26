@@ -77,10 +77,10 @@ namespace WebAPITesting.Tests.Features
         [NUnit.Framework.DescriptionAttribute("1.1.1 As a Store User, I want to Enter a Pets ID, So that I can view that Pets in" +
             "formation")]
         [NUnit.Framework.CategoryAttribute("HappyPath")]
-        [NUnit.Framework.TestCaseAttribute("9223372036854024262", null)]
-        [NUnit.Framework.TestCaseAttribute("9223372036854024263", null)]
-        [NUnit.Framework.TestCaseAttribute("9223372036854024264", null)]
-        public void _1_1_1AsAStoreUserIWantToEnterAPetsIDSoThatICanViewThatPetsInformation(string iD, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("52", "Vova", "humster", "available", null)]
+        [NUnit.Framework.TestCaseAttribute("224", "doggie", "Mark", "available", null)]
+        [NUnit.Framework.TestCaseAttribute("9", "", "cats", "sold", null)]
+        public void _1_1_1AsAStoreUserIWantToEnterAPetsIDSoThatICanViewThatPetsInformation(string iD, string name, string categoryName, string availabilityStatus, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "HappyPath"};
@@ -91,6 +91,9 @@ namespace WebAPITesting.Tests.Features
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("ID", iD);
+            argumentsOfScenario.Add("name", name);
+            argumentsOfScenario.Add("categoryName", categoryName);
+            argumentsOfScenario.Add("availabilityStatus", availabilityStatus);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1.1.1 As a Store User, I want to Enter a Pets ID, So that I can view that Pets in" +
                     "formation", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
@@ -110,7 +113,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When(string.Format("I enter a valid pet \"{0}\"", iD), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
- testRunner.Then("I should see that pet\'s information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("I should see that pet\'s \"{0}\", \"{1}\", \"{2}\"", name, categoryName, availabilityStatus), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -120,11 +123,11 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("1.1.2 As a Store User, I want to Enter a Pets ID, So that I can view that Pets in" +
             "formation")]
         [NUnit.Framework.CategoryAttribute("SadPath")]
-        [NUnit.Framework.TestCaseAttribute("", null)]
-        [NUnit.Framework.TestCaseAttribute("456", null)]
-        [NUnit.Framework.TestCaseAttribute("gty", null)]
-        [NUnit.Framework.TestCaseAttribute(",./", null)]
-        public void _1_1_2AsAStoreUserIWantToEnterAPetsIDSoThatICanViewThatPetsInformation(string iD, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("", "405", null)]
+        [NUnit.Framework.TestCaseAttribute("456", "404", null)]
+        [NUnit.Framework.TestCaseAttribute("gty", "404", null)]
+        [NUnit.Framework.TestCaseAttribute(",./", "404", null)]
+        public void _1_1_2AsAStoreUserIWantToEnterAPetsIDSoThatICanViewThatPetsInformation(string iD, string errorStatus, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "SadPath"};
@@ -135,6 +138,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("ID", iD);
+            argumentsOfScenario.Add("errorStatus", errorStatus);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1.1.2 As a Store User, I want to Enter a Pets ID, So that I can view that Pets in" +
                     "formation", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 17
@@ -154,7 +158,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When(string.Format("I enter an invalid pet \"{0}\"", iD), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 20
- testRunner.Then("I receive a 400 error message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("I receive a \"{0}\"", errorStatus), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

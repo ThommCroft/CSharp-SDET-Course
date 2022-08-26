@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +15,19 @@ namespace WebAPITesting.Tests
         public async Task OneTimeSetupAsync()
         {
             _petServices = new PetServices();
-            await _petServices.MakeGetRequestAsync("456");
+            await _petServices.MakeGetRequestAsync("9");
         }
 
         [Test]
-        public void GivenAnInvalidPetID_ReturnErrorStatus()
+        public void GivenAValidPetID_Return200Status()
         {
-            //Assert.That(_petServices.PetDTOResponse.Response.status, Is.EqualTo("400"));
-            Assert.That(_petServices.Json_Response["responses"].ToString(), Is.EqualTo("400"));
+            Assert.That((int)_petServices.CallManager.Response.StatusCode, Is.EqualTo(200));
+        }
+
+        [Test]
+        public void GivenAValidPetID_ReturnAvailabilityStatus()
+        {
+            Assert.That(_petServices.PetDTOResponse.Response.status, Is.EqualTo("sold"));
         }
     }
 }
